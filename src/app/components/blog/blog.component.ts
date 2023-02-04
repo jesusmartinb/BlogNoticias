@@ -6,7 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./blog.component.css']
 })
 export class BlogComponent {
-listNews: any[] = [
+
+  id: number = 0;
+  titulo: string = "";
+  imagen: string = "";
+  texto: string = "";
+  fechaPubli: string = "";
+  listNews: any[] = [
     {
       id: 1,
       titulo: "Así puedes poner en marcha tu negocio en tiempo récord",
@@ -22,5 +28,24 @@ listNews: any[] = [
       fechaPubli: "31-1-2023"
     }
   ];
+
+  guardar(): void {
+    let noticia = {
+      id: this.listNews.length + 1,
+      titulo: this.titulo,
+      imagen: `./assets/images/${this.imagen}`,
+      texto: this.texto,
+      fechaPubli: this.fechaPubli
+    }
+
+    this.listNews.push(noticia);
+
+    console.log(this.listNews);
+
+    this.titulo = "";
+    this.imagen = "";
+    this.texto = "";
+    this.fechaPubli = "";
+  }
 
 }
