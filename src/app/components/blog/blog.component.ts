@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
 })
 export class BlogComponent {
 
+  vacio: boolean = false;
   id: number = 0;
   titulo: string = "";
   imagen: string = "";
@@ -30,22 +31,29 @@ export class BlogComponent {
   ];
 
   guardar(): void {
-    let noticia = {
-      id: this.listNews.length + 1,
-      titulo: this.titulo,
-      imagen: `./assets/images/${this.imagen}`,
-      texto: this.texto,
-      fechaPubli: this.fechaPubli
+    if(this.titulo === "" || this.imagen === "" || this.texto === "" || this.fechaPubli === "") {
+      this.vacio = true;
+
+    } else {
+      let noticia = {
+        id: this.listNews.length + 1,
+        titulo: this.titulo,
+        imagen: `./assets/images/${this.imagen}`,
+        texto: this.texto,
+        fechaPubli: this.fechaPubli
+      }
+
+      this.listNews.push(noticia);
+
+      console.log(this.listNews);
+
+      this.titulo = "";
+      this.imagen = "";
+      this.texto = "";
+      this.fechaPubli = "";
+      this.vacio = false;
+
     }
-
-    this.listNews.push(noticia);
-
-    console.log(this.listNews);
-
-    this.titulo = "";
-    this.imagen = "";
-    this.texto = "";
-    this.fechaPubli = "";
   }
 
 }
