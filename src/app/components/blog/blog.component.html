@@ -4,7 +4,7 @@
 </header>
 <main class="main max-w-7xl mx-auto flex gap-6 my-20">
   <section class="form w-1/3">
-    <form action="">
+    <div class="form">
       <div class="mt-8">
         <input type="hidden" name="id" [value]="id">
         <label class="label block my-2 font-bold" for="titulo">Título de la noticia </label>
@@ -25,7 +25,7 @@
       <div class="mt-8">
         <button (click)="guardar()" class="btn border-2 p-2 bg-gray-300 rounded">Guardar</button>
       </div>
-    </form>
+    </div>
   </section>
   <section class="news-list w-2/3">
     <table class="list">
@@ -38,8 +38,8 @@
       <tbody>
         <tr *ngFor="let new of listNews" class="">
           <td class="p-2 align-top">{{ new.titulo }}</td>
-          <td class="p-2 align-top"><img src={{new.imagen}} alt=""></td>
-          <td class="p-2 align-top" innerHTML={{new.texto}}></td>
+          <td class="p-2 align-top"><img [src]="new.imagen" [alt]="new.titulo" appNoImage></td>
+          <td class="p-2 align-top" [innerHTML]="new.texto"></td>
           <td class="p-2 align-top">{{ new.fechaPubli }}</td>
         </tr>
       </tbody>

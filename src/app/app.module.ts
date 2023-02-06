@@ -5,10 +5,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { BlogComponent } from './components/blog/blog.component';
 
+import { NoImageDirective } from './directives/no-image.directive';
+
 @NgModule({
   declarations: [
     AppComponent,
-    BlogComponent
+    BlogComponent,
+    NoImageDirective
   ],
   imports: [
     BrowserModule,
