@@ -41,7 +41,7 @@
       <li *ngFor="let new of listNews">
         <article class="mb-8">
           <h4 class="text-2xl text-bold italic mb-5">{{ new.titulo }}</h4>
-          <p class="mb-3">{{ new.autor }} | {{ new.fechaPubli }}</p>
+          <p class="mb-3">{{ new.autor }} | {{ new.fechaPubli | date: 'dd/MM/yyyy' }}</p>
           <figure class="mb-5">
             <img [src]="new.imagen" [alt]="new.titulo" appNoImage>
           </figure>
