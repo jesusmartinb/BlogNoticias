@@ -9,7 +9,8 @@ import { Noticia } from 'src/app/interfaces/noticia.interface';
 export class BlogComponent {
 
   vacio: boolean = false;
-  id: number = 0;
+  contador: number = 3;
+  id: number = this.contador;
   titulo: string = "";
   autor: string = ""
   imagen: string = "";
@@ -40,7 +41,7 @@ export class BlogComponent {
 
     } else {
       let noticia: Noticia = {
-        id: this.listNews.length + 1,
+        id: this.contador,
         titulo: this.titulo,
         autor: this.autor,
         imagen: `./assets/images/${this.imagen}`,
@@ -49,6 +50,7 @@ export class BlogComponent {
       }
 
       this.listNews.unshift(noticia);
+      this.contador++;
 
       console.log(this.listNews);
 
