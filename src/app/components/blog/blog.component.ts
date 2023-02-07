@@ -44,7 +44,7 @@ export class BlogComponent {
         id: this.contador,
         titulo: this.titulo,
         autor: this.autor,
-        imagen: `./assets/images/${this.imagen}`,
+        imagen: this.imagen,
         texto: this.texto,
         fechaPubli: this.fechaPubli
       }
