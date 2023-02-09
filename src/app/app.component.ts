@@ -1,3 +1,4 @@
+import { compileNgModule } from '@angular/compiler';
 import { Component } from '@angular/core';
 import { Noticia } from './interfaces/noticia.interface';
 
@@ -8,7 +9,16 @@ import { Noticia } from './interfaces/noticia.interface';
 })
 export class AppComponent {
 
-  listNews: Noticia[] = [
+  vacio: boolean = false;
+  contador: number = 3;
+  id: number = this.contador;
+  titulo: string = "";
+  autor: string = ""
+  imagen: string = "";
+  texto: string = "";
+  fechaPubli: string = "";
+
+  noticiasList: Noticia[] = [
     {
       id: 1,
       titulo: "Así puedes poner en marcha tu negocio en tiempo récord",
@@ -26,4 +36,29 @@ export class AppComponent {
       fechaPubli: "01/31/2023"
     }
   ];
+
+  guardarId($event: any): void {
+    this.id = $event;
+  }
+
+  guardarTitulo($event: any): void {
+    this.titulo = $event;
+  }
+
+  guardarAutor($event: any): void {
+    this.autor = $event;
+  }
+
+  guardarImagen($event: any): void {
+    this.imagen = $event;
+  }
+
+  guardarTexto($event: any): void {
+    this.texto = $event;
+  }
+
+  guardarFecha($event: any): void {
+    this.fechaPubli = $event;
+  }
+
 }

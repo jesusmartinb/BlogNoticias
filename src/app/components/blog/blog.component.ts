@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Noticia } from 'src/app/interfaces/noticia.interface';
 
 @Component({
@@ -19,8 +19,31 @@ export class BlogComponent {
 
   @Input() noticiasList: any[] = [];
 
+  @Output() idEnviado: EventEmitter<number>;
+  @Output() tituloEnviado: EventEmitter<string>;
+  @Output() autorEnviado: EventEmitter<string>;
+  @Output() imagenEnviado: EventEmitter<string>;
+  @Output() textoEnviado: EventEmitter<string>;
+  @Output() fechaPubliEnviado: EventEmitter<string>;
+
+  constructor() {
+    this.idEnviado = new EventEmitter();
+    this.tituloEnviado = new EventEmitter();
+    this.autorEnviado = new EventEmitter();
+    this.imagenEnviado = new EventEmitter();
+    this.textoEnviado = new EventEmitter();
+    this.fechaPubliEnviado = new EventEmitter();
+  }
+
 
   guardar(): void {
+    this.idEnviado.emit(this.id);
+    this.tituloEnviado.emit(this.titulo);
+    this.autorEnviado.emit(this.autor);
+    this.imagenEnviado.emit(this.imagen);
+    this.textoEnviado.emit(this.texto);
+    this.fechaPubliEnviado.emit(this.fechaPubli);
+
     if(this.titulo === "" || this.autor === "" || this.imagen === "" || this.texto === "" || this.fechaPubli === "") {
       this.vacio = true;
 
@@ -37,8 +60,6 @@ export class BlogComponent {
       this.noticiasList.unshift(noticia);
       this.contador++;
 
-      console.log(this.noticiasList);
-
       this.titulo = "";
       this.autor = "";
       this.imagen = "";
@@ -47,6 +68,7 @@ export class BlogComponent {
       this.vacio = false;
 
     }
+
   }
 
 }

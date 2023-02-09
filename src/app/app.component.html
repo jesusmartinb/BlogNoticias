@@ -1,1 +1,1 @@
-<app-blog [noticiasList]="listNews"></app-blog>
+<app-blog [noticiasList]="noticiasList" (idEnviado)="guardarId($event)" (tituloEnviado)="guardarTitulo($event)" (autorEnviado)="guardarAutor($event)" (imagenEnviado)="guardarImagen($event)" (textoEnviado)="guardarTexto($event)" (fechaPubliEnviado)="guardarFecha($event)"></app-blog>
