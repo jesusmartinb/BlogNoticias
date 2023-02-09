@@ -38,14 +38,14 @@
   <section class="news-list w-7/12">
     <h2 class="text-3xl font-bold mb-6 text-center">Listado de Noticias</h2>
     <ul>
-      <li *ngFor="let new of listNews">
+      <li *ngFor="let noticia of noticiasList">
         <article class="mb-8">
-          <h4 class="text-2xl text-bold italic mb-5">{{ new.titulo }}</h4>
-          <p class="mb-3">{{ new.autor }} | {{ new.fechaPubli | date: 'dd/MM/yyyy' }}</p>
+          <h4 class="text-2xl text-bold italic mb-5">{{ noticia.titulo }}</h4>
+          <p class="mb-3">{{ noticia.autor }} | {{ noticia.fechaPubli | date: 'dd/MM/yyyy' }}</p>
           <figure class="mb-5">
-            <img [src]="new.imagen" [alt]="new.titulo" appNoImage>
+            <img [src]="noticia.imagen" [alt]="noticia.titulo" appNoImage>
           </figure>
-          <div [innerHTML]="new.texto" class="mb-5"></div>
+          <div [innerHTML]="noticia.texto" class="mb-5"></div>
         </article>
       </li>
     </ul>
